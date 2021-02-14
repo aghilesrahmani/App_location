@@ -1,34 +1,45 @@
 import { StatusBar } from 'expo-status-bar';
 import React, {useState} from 'react';
 import { StyleSheet,TouchableOpacity, Text, View, ImageBackground, Alert,Image, Button, TextInput} from 'react-native';
+import navigation from 'react-native';
 
+import * as Animatable from 'react-native-animatable';
 
 export default function App() {
   return (
-    <View style={styles.container}>
+    <Animatable.View style={styles.container} animation='fadeInUpBig' >
 
-    <Text style={styles.txt} color='black'>Location de Voiture</Text>
     
-    <ImageBackground source={require('/Users/antoine/essai2/voiture.jpg')}
+    <ImageBackground 
+    source={require('/Users/antoine/essai2/voiture.jpg')}
       style={styles.img}
     ></ImageBackground>
    
    
     
-    <TextInput style={styles.iputBox} placeholder='Email' placeholderTextColor='white'></TextInput>
+    <TextInput style={styles.iputBox} 
+    placeholder='Email' 
+    placeholderTextColor='white' 
+    keyboardType='email-address' 
+    returnKeyType='next'
+    autoCorrect={true}></TextInput>
 
-    <TextInput style={styles.iputBox} placeholder='Password' secureTextEntry placeholderTextColor='white'></TextInput>
+    <TextInput style={styles.iputBox} placeholder='Password' secureTextEntry placeholderTextColor='white' returnKeyType='go'></TextInput>
 
-    <Text style={styles.txt}> Location de Voiture</Text>
+    <Animatable.Text style={styles.txt} animation=''> Location de Voitures</Animatable.Text>
 
 
     <TouchableOpacity
         style={styles.button}
-        //onPress={onPress}
+        onPress={() => navigation.navigate('scree2')}
       >
-        <Text style={styles.txt1}>LogIn</Text>
+        <Text style={styles.txt1} a href="/Users/antoine/essai2/screen2.js">LogIn</Text>
       </TouchableOpacity>
-    </View>
+     
+
+    </Animatable.View>
+    
+    
 
     
   );
@@ -42,6 +53,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
 
   },
+
   img:{
     width:'100%',
     height:'100%',
@@ -76,6 +88,7 @@ bottom:200,
     marginVertical:10,
     borderRadius:29,
     marginTop:0,
+    borderColor:'white'
   },
   button:{
     bottom:-1,
